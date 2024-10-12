@@ -22,6 +22,26 @@
   }
 }
 
+@keyframes balance {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes balance_fire {
+  0% {
+    transform: rotate(3deg);
+  }
+
+  100% {
+    transform: rotate(-18deg);
+  }
+}
+
 main {
   min-height: 100vh;
   width: 100vw;
@@ -29,6 +49,8 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  background-color: $bg-primary;
 
   .header_container {
     display: flex;
@@ -101,5 +123,89 @@ main {
       }
     }
 
+  }
+
+  .content_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-grow: 1;
+    // max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 60px;
+    padding-right: 60px;
+
+    width: 70%;
+    padding: 32px;
+
+    .heading_container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      flex-direction: column;
+      width: 70%;
+
+      h2 {
+        font-size: 80px;
+        font-weight: 800;
+        line-height: 115%;
+        letter-spacing: -1px;
+
+        &:first-of-type {
+          align-self: flex-start;
+        }
+      }
+    }
+
+    .bubble {
+      background-color: rgba(255, 255, 255, .1);
+      border-radius: 100%;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.fire {
+        width: 80px;
+        height: 80px;
+        right: 20px;
+        transform: rotate(-20deg);
+        bottom: 30%;
+        font-size: 24px;
+        animation: balance_fire 2000ms alternate 1000ms infinite;
+      }
+
+      &.rocket {
+        width: 100px;
+        height: 100px;
+        right: 100px;
+        transform: rotate(-20deg);
+        top: 20%;
+        font-size: 42px;
+        animation: balance 2500ms alternate 1200ms infinite;
+      }
+
+      &.target {
+        width: 150px;
+        height: 150px;
+        left: 250px;
+        transform: rotate(30deg);
+        top: 10%;
+        font-size: 72px;
+        animation: balance 2000ms alternate 1000ms infinite;
+      }
+
+      &.shop {
+        width: 90px;
+        height: 90px;
+        left: 5%;
+        transform: rotate(30deg);
+        bottom: 20%;
+        font-size: 36px;
+        animation: balance 1500ms alternate 800ms infinite;
+      }
+    }
   }
 }
